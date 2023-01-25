@@ -35,6 +35,7 @@ class Bank
     }
     public static void main(String[] args)
     {
+
         Scanner sc=new Scanner(System.in);
         String name;
         long accountno;
@@ -68,7 +69,7 @@ class Bank
             }
             else if(select==3)
             {
-                LOGGER.log(Level.INFO,"current balance in the bank account "+person.currentBalance()+"/-");
+                LOGGER.log(Level.ALL,"current balance in the bank account "+person.currentBalance()+"/-");
             }
             else{
                 LOGGER.log(Level.INFO,"THANK YOU USER COME AGAIN");
