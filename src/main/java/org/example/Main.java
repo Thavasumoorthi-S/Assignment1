@@ -1,8 +1,10 @@
 package org.example;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.*;
 class Bank
 {
+    private static final Logger LOGGER=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     String name;
     long accountno;
     int balance;
@@ -20,10 +22,10 @@ class Bank
     {
         if(balance<withamount)
         {
-            System.out.println("your savings are low amount choose less amount: ");
+            LOGGER.log(Level.INFO,"your savings are low amount choose less amount: ");
         }
         else{
-            System.out.println("You are successfully withdraw amout is "+withamount);
+            LOGGER.log(Level.INFO,"You are successfully withdraw amout is "+withamount);
             balance=balance-withamount;
         }
     }
@@ -39,37 +41,37 @@ class Bank
         int balance;
         int amount;
         int withamount;
-        System.out.println("Enter your name:");
+        LOGGER.log(Level.INFO,"Enter your name:");
         name=sc.nextLine();
-        System.out.println("Enter Account number:");
+        LOGGER.log(Level.INFO,"Enter Account number:");
         accountno=sc.nextLong();
-        System.out.println("Enter the amount:");
+        LOGGER.log(Level.INFO,"Enter the amount:");
         balance=sc.nextInt();
         Bank person=new Bank(name,accountno,balance);
         while(true)
         {
-            System.out.println("\n1)DEPOSIT \n2)WITHDRAW\n3)CURRENT BALANCE\n4)EXIT");
+            LOGGER.log(Level.INFO,"\n1)DEPOSIT \n2)WITHDRAW\n3)CURRENT BALANCE\n4)EXIT");
             int select;
-            System.out.println("Select any one of the option in the above: ");
+            LOGGER.log(Level.INFO,"Select any one of the option in the above: ");
             select=sc.nextInt();
             if(select==1)
             {
-                System.out.println("How much amout deposit: ");
+                LOGGER.log(Level.INFO,"How much amout deposit: ");
                 amount=sc.nextInt();
                 person.deposit(amount);
             }
             else if(select==2)
             {
-                System.out.println("Enter how much amout withdraw: ");
+                LOGGER.log(Level.INFO,"Enter how much amout withdraw: ");
                 withamount=sc.nextInt();
                 person.withdraw(withamount);
             }
             else if(select==3)
             {
-                System.out.println("current balance in the bank account "+person.currentBalance()+"/-");
+                LOGGER.log(Level.INFO,"current balance in the bank account "+person.currentBalance()+"/-");
             }
             else{
-                System.out.println("THANK YOU USER COME AGAIN");
+                LOGGER.log(Level.INFO,"THANK YOU USER COME AGAIN");
                 break;
             }
         }
