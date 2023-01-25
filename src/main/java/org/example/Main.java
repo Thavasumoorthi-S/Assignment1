@@ -25,7 +25,7 @@ class Bank
             LOGGER.log(Level.INFO,"your savings are low amount choose less amount: ");
         }
         else{
-            LOGGER.info("You are successfully withdraw amount is "+withamount);
+            LOGGER.log(Level.INFO,Integer.toString(withamount),"You are successfully withdraw amount is "+withamount);
             balance=balance-withamount;
         }
     }
