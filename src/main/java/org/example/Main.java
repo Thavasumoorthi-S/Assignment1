@@ -69,7 +69,7 @@ class Bank
             }
             else if(select==3)
             {
-                LOGGER.log(Level.ALL,"current balance in the bank account "+person.currentBalance()+"/-");
+                LOGGER.info("current balance in the bank account "+person.currentBalance()+"/-");
             }
             else{
                 LOGGER.log(Level.INFO,"THANK YOU USER COME AGAIN");
