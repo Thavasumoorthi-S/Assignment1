@@ -51,29 +51,29 @@ class Bank
         Bank person=new Bank(name,accountno,balance);
         while(true)
         {
-            LOGGER.log(Level.INFO,"\n1)DEPOSIT \n2)WITHDRAW\n3)CURRENT BALANCE\n4)EXIT");
-            int select;
-            LOGGER.log(Level.INFO,"Select any one of the option in the above: ");
-            select=sc.nextInt();
-            if(select==1)
-            {
-                LOGGER.log(Level.INFO,"How much amout deposit: ");
-                amount=sc.nextInt();
-                person.deposit(amount);
+            try {
+                LOGGER.log(Level.INFO, "\n1)DEPOSIT \n2)WITHDRAW\n3)CURRENT BALANCE\n4)EXIT");
+                int select;
+                LOGGER.log(Level.INFO, "Select any one of the option in the above: ");
+                select = sc.nextInt();
+                if (select == 1) {
+                    LOGGER.log(Level.INFO, "How much amout deposit: ");
+                    amount = sc.nextInt();
+                    person.deposit(amount);
+                } else if (select == 2) {
+                    LOGGER.log(Level.INFO, "Enter how much amout withdraw: ");
+                    withamount = sc.nextInt();
+                    person.withdraw(withamount);
+                } else if (select == 3) {
+                    LOGGER.log(Level.INFO, Integer.toString(person.currentBalance()), "Current Balance in the account: " + person.currentBalance());
+                } else {
+                    LOGGER.log(Level.INFO, "THANK YOU USER COME AGAIN");
+                    break;
+                }
             }
-            else if(select==2)
+            catch(InputMismatchException e)
             {
-                LOGGER.log(Level.INFO,"Enter how much amout withdraw: ");
-                withamount=sc.nextInt();
-                person.withdraw(withamount);
-            }
-            else if(select==3)
-            {
-                LOGGER.log(Level.INFO,Integer.toString(person.currentBalance()),"Current Balance in the account: "+person.currentBalance());
-            }
-            else{
-                LOGGER.log(Level.INFO,"THANK YOU USER COME AGAIN");
-                break;
+                throw new InputMismatchException("Please Enter the valid inpput");
             }
         }
     }
