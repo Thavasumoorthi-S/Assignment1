@@ -73,7 +73,7 @@ class Bank
             }
             catch(InputMismatchException e)
             {
-                throw new InputMismatchException("Please Enter the valid inpput");
+                throw new InputMismatchException("Please Enter the valid input");
             }
         }
     }
