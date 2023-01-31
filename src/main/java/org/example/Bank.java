@@ -51,7 +51,6 @@ class Bank
         Bank person=new Bank(name,accountno,balance);
         while(true)
         {
-            try {
                 LOGGER.log(Level.INFO, "\n1)DEPOSIT \n2)WITHDRAW\n3)CURRENT BALANCE\n4)EXIT");
                 int select;
                 LOGGER.log(Level.INFO, "Select any one of the option in the above: ");
@@ -70,11 +69,6 @@ class Bank
                     LOGGER.log(Level.INFO, "THANK YOU USER COME AGAIN");
                     break;
                 }
-            }
-            catch(InputMismatchException e)
-            {
-                throw new InputMismatchException("Please Enter the valid input");
-            }
         }
     }
 }
